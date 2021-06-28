@@ -11,7 +11,14 @@ class Block{
     }
     display(){
       var pos= this.body.position;
+      // always make a rectangular body rotate
+      // by using push,translate,rotate,pop
+      push();
       rectMode(CENTER);
-      rect(pos.x,pos.y,this.width, this.height);
+      angleMode(RADIANS);
+      translate(pos.x,pos.y);
+      rotate(this.body.angle);
+      rect(0,0,this.width, this.height);
+      pop();
     }
 }
